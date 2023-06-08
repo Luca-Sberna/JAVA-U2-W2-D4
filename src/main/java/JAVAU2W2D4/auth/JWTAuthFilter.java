@@ -40,7 +40,8 @@ public class JWTAuthFilter extends OncePerRequestFilter {
 		String email = JWTTools.extractSubject(accessToken);
 		System.out.println("******************************** " + email);
 
-		// try catch per completare l autorizzazione
+		// try catch per completare l autorizzazione con ulteriori info e aggiunta al
+		// context
 		try {
 			User user = usersService.findByEmail(email);
 			UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(user, null,
